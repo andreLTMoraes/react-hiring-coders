@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import * as S from './styled'
 
 export default function Home() {
+  const history = useHistory()
   const [usuario, setUsuario] = useState('');
 
   function handleSearch() {
@@ -14,7 +16,8 @@ export default function Home() {
       repositories.map(repository => {
         repositoriesName.push(repository.name);
       });
-      localStorage.setItem('respositoriesName', JSON.stringify(repositoriesName))
+      localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName))
+      history.push('/repositories');
     })
   }
 
