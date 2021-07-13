@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios'
+import * as S from './styled'
 
 export default function Home() {
   const [usuario, setUsuario] = useState('');
@@ -12,9 +13,9 @@ export default function Home() {
   }
 
   return (
-    <>
-      <input className='usuario' placeholder='Usuário' value={usuario} onChange={e => setUsuario(e.target.value)}/>
-      <button onClick={handleSearch}>Pesquisar</button>
-    </>
+    <S.Container>
+      <S.Input className='usuario' placeholder='Usuário' value={usuario} onChange={e => setUsuario(e.target.value)}/>
+      <S.Button onClick={handleSearch}>Pesquisar</S.Button>
+    </S.Container>
   );
 }
